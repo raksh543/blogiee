@@ -22,8 +22,8 @@ export default function App(){
   }=useBookPages(pageNumber)
   const observer = useRef()
   const lastPostElementRef = useCallback(node =>{
-    console.log("------------------------------------")
-    console.log(node)
+    // console.log("------------------------------------")
+    // console.log(node)
     if(loading) return
     if(observer.current) observer.current.disconnect()
     observer.current = new IntersectionObserver( entries => {
@@ -39,15 +39,17 @@ export default function App(){
   
     return (
       <DefaultLayout>
-        <div>element</div>
+  
+        <h1>Blog-Home</h1>
+        {/* <div>{doc}</div> */}
         {posts.map((post, index )=>{
-          console.log("in here")
+          // console.log("in here")
         if (posts.length === index + 1){
-            console.log("in here 1" + post);
-         return <div ref={lastPostElementRef} key ={post}>{post} <br/> <img src = "https://www.ibef.org//uploads/blog/blog-sample-img-lrg111.jpg"/></div>
+            // console.log("in here 1" + post);
+         return <div ref={lastPostElementRef} key ={post}><h2>{post} </h2><br/> <img src = "https://www.ibef.org//uploads/blog/blog-sample-img-lrg111.jpg"/></div>
         }else{
-          console.log("in here 2" + post);
-          return <div key ={post}>{post} <br/><img src = "https://www.ibef.org//uploads/blog/blog-sample-img-lrg111.jpg"/></div>
+          // console.log("in here 2" + post);
+          return <div key ={post}><h2>{post}</h2> <br/><img src = "https://www.ibef.org//uploads/blog/blog-sample-img-lrg111.jpg"/></div>
         }
         })}
         {/* <div>{posts}</div> */}

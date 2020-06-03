@@ -24,7 +24,7 @@ export default function useBookPages(pageNumber) {
         client.getSingle("blog_home").then(doc=>{
             setDoc(doc)
         })
-        console.log("doc   "+doc)
+        // console.log("doc   "+doc)
         // const doc = client.getSingle("blog_home", ref ? { ref } : null);
 
         client.query(
@@ -35,7 +35,7 @@ export default function useBookPages(pageNumber) {
         }).then(posts => {
             // return console.log(posts ? posts.results : [])
             setPosts(prevPosts => {
-                console.log(posts.results.map(b => b.data.body))
+                // console.log(posts.results.map(b => b.data.body))
               return [...prevPosts, ...posts.results.map(b => b.uid)]
             })
             setHasMore(posts.results.length > 0)
@@ -47,4 +47,5 @@ export default function useBookPages(pageNumber) {
     }, [pageNumber])
     return {loading, error, posts, hasMore, doc}
 }
+
 
